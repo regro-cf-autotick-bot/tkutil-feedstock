@@ -1,5 +1,5 @@
 {% set name = "tkutil" %}
-{% set version = "0.0.7" %}
+{% set version = "0.0.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tkutil-{{ version }}.tar.gz
-  sha256: 5d87d71393680302b72c68cac3857600f8f856e70083cea8227027542f18d07e
+  sha256: e928c850adb12a6446361131dc3f6816c39515061f34f4fdf2e4abe0b13abe2f
 
 build:
   entry_points:
@@ -22,6 +22,7 @@ requirements:
     - python >=3.5
   run:
     - python >=3.5
+    - shared
 
 test:
   imports:
