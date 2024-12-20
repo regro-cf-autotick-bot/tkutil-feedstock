@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/tkutil-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/tkutil-{{ version }}.tar.gz
   sha256: e928c850adb12a6446361131dc3f6816c39515061f34f4fdf2e4abe0b13abe2f
 
 build:
@@ -14,14 +14,14 @@ build:
     - tkutil = tkutil.__main__:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python {{ python_min }}
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - shared
 
 test:
@@ -32,6 +32,7 @@ test:
     - tkutil --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/pyrustic/tkutil
